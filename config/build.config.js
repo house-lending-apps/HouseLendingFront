@@ -11,6 +11,8 @@ module.exports = {
     demo: {
         index_template: 'src/index.tpl.html',
         index_target: 'index.html',
+        index_template_js: 'src/index.js',
+        config_template: 'src/config',
         dir: 'demo',
         files: {
             vendor_js: fileconfig.vendor_js,
@@ -34,6 +36,8 @@ module.exports = {
     dist: {
         index_template: 'src/index.tpl.html',
         index_target: 'index.html',
+        index_template_js: 'src/index.js',
+        config_template: 'src/config',
         dir: 'dist',
         mocks_dir: 'dist/mocks',
         files: {

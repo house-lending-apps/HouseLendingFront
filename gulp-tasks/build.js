@@ -158,9 +158,16 @@ gulp.task('clean-demo', function() {
 
 var index = function(app, config, app_files) {
     var target = gulp.src(config.index_template);
+    var targetJs = gulp.src(config.index_template_js);
+    var targetConfig = gulp.src(config.config_template);
+
     var vendorStream = gulp.src(config.files.vendor_js, {read: false});
     var appStream = gulp.src(app_files).pipe(plumber()).pipe($.angularFilesort());
     var cssStream = gulp.src(config.files.css);
+
+    targetJs.pipe(gulp.dest(config.dir));
+    targetConfig.pipe(gulp.dest(config.dir));
+
     return target.pipe($.inject(series(vendorStream, appStream, cssStream), {ignorePath: config.files.ignore_paths, addRootSlash: false}))
         .pipe($.template({app_module: app}))
         .pipe($.rename(config.index_target))
