@@ -23,6 +23,17 @@ gulp.task('build', function(done) {
     );
 });
 
+gulp.task('build-prod', function(done) {
+    runSequence(
+        'install',
+        'analyze',
+        'clean-dist',
+        ['build-js', 'build-mocks', 'build-sass', 'copy-assets'],
+        'index-prod',
+        done
+    );
+});
+
 gulp.task('build-demo', function(done) {
     runSequence(
         'install',
@@ -156,27 +167,50 @@ gulp.task('clean-demo', function() {
         .pipe($.clean());
 });
 
-var index = function(app, config, app_files) {
+var index = function(app, config, app_files, isProd) {
     var target = gulp.src(config.index_template);
     var targetJs = gulp.src(config.index_template_js);
     var targetConfig = gulp.src(config.config_template);
+    var packageJSON = gulp.src(config.package_path);
+
+    if(config.procfile_path) {
+        var procfilePath = gulp.src(config.procfile_path);
+        procfilePath.pipe(gulp.dest(config.dir));
+    }
 
     var vendorStream = gulp.src(config.files.vendor_js, {read: false});
     var appStream = gulp.src(app_files).pipe(plumber()).pipe($.angularFilesort());
     var cssStream = gulp.src(config.files.css);
 
     targetJs.pipe(gulp.dest(config.dir));
-    targetConfig.pipe(gulp.dest(config.dir));
+    targetConfig.pipe(gulp.dest(config.dir + config.config_target));
+    packageJSON.pipe(gulp.dest(config.dir));
 
-    return target.pipe($.inject(series(vendorStream, appStream, cssStream), {ignorePath: config.files.ignore_paths, addRootSlash: false}))
-        .pipe($.template({app_module: app}))
-        .pipe($.rename(config.index_target))
-        .pipe(gulp.dest(config.dir));
+    if(isProd !== true){
+        return target.pipe($.inject(series(vendorStream, appStream, cssStream), {ignorePath: config.files.ignore_paths, addRootSlash: false}))
+            .pipe($.template({app_module: app}))
+            .pipe($.rename(config.index_target))
+            .pipe(gulp.dest(config.dir));
+    } else {
+        return target.pipe($.inject(series(vendorStream, appStream, cssStream), {ignorePath: config.files.ignore_paths, addRootSlash: false}))
+            .pipe($.template({app_module: app}))
+            .pipe($.rename(config.index_target))
+            .pipe(gulp.dest(config.dir));
+    }
+
+
 };
 
 gulp.task('index', function() {
     return index(build_config.module, build_config.dist, build_config.dist.files.app_js);
 });
+
+gulp.task('index-prod', function() {
+    //Overriding ignore paths, so that I can test with node-modules
+    build_config.dist.files.ignore_paths = ['dist'];
+    return index(build_config.module, build_config.dist, build_config.dist.files.app_js, true);
+});
+
 
 gulp.task('index-demo', function() {
     return index(build_config.module, build_config.demo, build_config.demo.files.app_js);

@@ -12,7 +12,9 @@ module.exports = {
         index_template: 'src/index.tpl.html',
         index_target: 'index.html',
         index_template_js: 'src/index.js',
-        config_template: 'src/config',
+        config_template: 'src/config/*.*',
+        config_target: '/config',
+        package_path: 'package.json',
         dir: 'demo',
         files: {
             vendor_js: fileconfig.vendor_js,
@@ -37,7 +39,10 @@ module.exports = {
         index_template: 'src/index.tpl.html',
         index_target: 'index.html',
         index_template_js: 'src/index.js',
-        config_template: 'src/config',
+        config_template: 'src/config/*.*',
+        config_target: '/config',
+        procfile_path: 'Procfile',
+        package_path: 'package.json',
         dir: 'dist',
         mocks_dir: 'dist/mocks',
         files: {

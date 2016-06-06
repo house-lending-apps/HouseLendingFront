@@ -9,7 +9,7 @@ var dist_dirs = ['dist', 'node_modules'];
 var livereload_port = argv.lp || 35728; // Default is 35729 but we keep it as default port for main app
 var server_port = argv.p || 9000;
 
-var startServer = function(src) {
+var startServer = function (src) {
     gulp.src(src)
         .pipe($.webserver({
             port: server_port,
@@ -26,11 +26,11 @@ var startServer = function(src) {
         }));
 };
 
-gulp.task('webserver', function() {
+gulp.task('webserver', function () {
     return startServer(dist_dirs);
 });
 
-gulp.task('webserver-demo', function() {
+gulp.task('webserver-demo', function () {
     return startServer(demo_dirs);
 });
 

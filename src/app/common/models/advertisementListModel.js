@@ -1,8 +1,9 @@
 'use strict';
 
 
-var AdvertisementListModel = function (Advertisement) {
-    this.Advertisement = Advertisement;
+var AdvertisementListModel = function (AdvertisementBaseModel) {
+    this.Advertisement = [];
+    angular.copy(AdvertisementBaseModel, this.Advertisement);
     this.advertisements = [];
 
     return this;

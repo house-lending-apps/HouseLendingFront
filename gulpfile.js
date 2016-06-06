@@ -6,6 +6,13 @@ var requireDir = require('require-dir');
 
 requireDir('gulp-tasks');
 
+gulp.task('run-prod', function(cb) {
+    runSequence(
+        'build-prod',
+        cb
+    );
+});
+
 gulp.task('run', function(cb) {
     runSequence(
         'build',
