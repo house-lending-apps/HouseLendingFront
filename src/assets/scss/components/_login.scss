@@ -15,9 +15,25 @@ $form-padding: $global-padding;
 
 // Setting the form border radius
 $form-radius: $global-radius;
+.log-in-container {
+  .row .column.row.row {
+    padding-left: $form-padding;
+    padding-right: $form-padding;
+  }
 
-.log-in-form {
-  border: 1px solid $form-border-color;
-  padding: $form-padding;
-  border-radius: $form-radius;
+  padding-top: 10rem;
+
+
+  .log-in-form {
+    border: 1px solid $form-border-color;
+    padding: $form-padding;
+    border-radius: $form-radius;
+  }
+
+  .log-in-error {
+    color: red;
+  }
+
+
 }
+

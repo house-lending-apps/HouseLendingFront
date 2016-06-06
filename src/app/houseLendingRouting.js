@@ -17,22 +17,18 @@ angular.module('house-lending')
             .state('houseLending.dashboard', {
                 url: '/dashboard',
                 template: '<house-lending-dashbopard></house-lending-dashbopard>'
-                /*,
-                 resolve: {
-                 advertisementData: function (AdvertisementListService) {
-
-                 //AdvertisementListService.getAdvertisements().then(function(advertisements){
-
-
-                 }
-                 }*/
             })
-            .state('houseLending.landingPage', {
+            //Marketing Landing Page
+            .state('landingPage', {
                 url: '/landingPage',
                 template: '<marketing-landing-page></marketing-landing-page>'
+            })
+            // Login Flow
+            .state('login', {
+                url: '/login',
+                template: '<login-page></login-page>'
             });
-
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/login');
     })
     .run(function ($rootScope, $log, $state) {
         $rootScope.$on('$stateChangeStart',

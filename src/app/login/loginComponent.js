@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('house-lending.login').directive('loginPage', {
+angular.module('house-lending.login').component('loginPage', {
     controller: 'LoginController',
     controllerAs: 'vm',
-    templateUrl: 'login.tpl.html'
+    templateUrl: 'login/login.tpl.html'
 });

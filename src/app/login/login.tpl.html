@@ -1,18 +1,22 @@
-<div class="row">
-    <div class="medium-6 medium-centered large-4 large-centered columns">
-        <form>
-            <div class="row column log-in-form">
-                <h4 class="text-center">Log in with you email account</h4>
-                <label>Email
-                    <input type="text" placeholder="somebody@example.com">
-                </label>
-                <label>Password
-                    <input type="text" placeholder="Password">
-                </label>
-                <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-                <p><a type="submit" class="button expanded">Log In</a></p>
-                <p class="text-center"><a href="#">Forgot your password?</a></p>
-            </div>
-        </form>
+<div class="log-in-container">
+    <div class="row">
+        <div class="medium-6 medium-centered large-4 large-centered columns">
+            <form>
+                <div class="row column log-in-form">
+                    <h4 class="text-center">Log in with you email account</h4>
+                    <label>Email
+                        <input type="text" placeholder="somebody@example.com" ng-model="vm.user">
+                    </label>
+                    <label>Password
+                        <input type="password" placeholder="Password" ng-model="vm.password">
+                    </label>
+                    <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+                    <p><a type="submit" ng-click="vm.loginUser()" class="button expanded">Log In</a></p>
+                    <p class="text-center"><a href="#">Forgot your password?</a></p>
+
+                    <p class="text-center log-in-error" ng-if="vm.errorMessage !== undefined">{{vm.errorMessage}}</p>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
