@@ -1,3 +1,7 @@
+# Travis Build Status #
+ https://travis-ci.org/house-lending-apps/HouseLendingFront.svg?branch=develop
+
+
 # House-Lending-Apps
 House-Lending-Apps
 
