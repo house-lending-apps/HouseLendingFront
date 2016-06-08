@@ -178,10 +178,17 @@ var index = function(app, config, app_files, isProd) {
         procfilePath.pipe(gulp.dest(config.dir));
     }
 
-    if(config.deploy_config_files) {
+    /*if(config.deploy_config_files) {
         var deployConfigFiles = gulp.src(config.deploy_config_files);
         deployConfigFiles.pipe(gulp.dest(config.dir));
+    }*/
+    if(config.deploy_config_file) {
+        var deployConfigFiles = gulp.src(config.deploy_config_file);
+        deployConfigFiles
+            .pipe($.rename(config.deploy_config_file_target))
+            .pipe(gulp.dest(config.dir));
     }
+    
 
     var vendorStream = gulp.src(config.files.vendor_js, {read: false});
     var appStream = gulp.src(app_files).pipe(plumber()).pipe($.angularFilesort());
