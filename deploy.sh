@@ -18,7 +18,7 @@ then
     git clone https://$USER_CRED@github.com/house-lending-apps/HouseLendingDeployable.git $targetBranch
     git checkout $targetBranch
 
-    echo "`ls -l"
+    echo "ls -l"
     cd HouseLendingDeployable
     echo "Current directory = $PWD"
 
