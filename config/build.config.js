@@ -15,7 +15,8 @@ module.exports = {
         config_template: 'src/config/*.*',
         config_target: '/config',
         package_path: 'package.json',
-        deploy_config_files: ['.env','.travis.yml','deploy.sh'],
+        deploy_config_file: 'travis.deploy.yml',
+        deploy_config_file_target: '.travis.yml',
         dir: 'demo',
         files: {
             vendor_js: fileconfig.vendor_js,
@@ -44,7 +45,8 @@ module.exports = {
         config_target: '/config',
         procfile_path: 'Procfile',
         package_path: 'package.json',
-        deploy_config_files: ['.env','.travis.yml','deploy.sh'],
+        deploy_config_file: 'travis.deploy.yml',
+        deploy_config_file_target: '.travis.yml',
         dir: 'dist',
         mocks_dir: 'dist/mocks',
         files: {
