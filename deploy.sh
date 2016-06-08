@@ -13,7 +13,7 @@ then
 
     echo "Starting deployment ... "
 
-    git clone https://$USER_CRED@github.com/house-lending-apps/HouseLendingFront.git $targetBranch
+    git clone https://$USER_CRED@github.com/house-lending-apps/HouseLendingDeployable.git $targetBranch
     git checkout $targetBranch
 
     cd HouseLendingDeployable
