@@ -19,9 +19,7 @@ then
         cd ..
         echo "Current directory = $PWD"
         git clone https://$USER_CRED@github.com/house-lending-apps/HouseLendingDeployable.git $targetBranch
-        git checkout $targetBranch
 
-        echo "ls -l"
         cd HouseLendingDeployable
         echo "Current directory = $PWD"
 
@@ -29,7 +27,7 @@ then
         echo "Pushing to $targetBranch"
 
         git add -f --all .
-        git commit -a -m 'bumped the version [ci skip]'
+        git commit -a -m 'Deployed new version of houselendingfront'
         git push -f --set-upstream origin $targetBranch
     else
         echo 'No need to deploy.'

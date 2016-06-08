@@ -169,34 +169,16 @@ gulp.task('clean-demo', function() {
 
 var index = function(app, config, app_files, isProd) {
     var target = gulp.src(config.index_template);
-    var targetJs = gulp.src(config.index_template_js);
-    var targetConfig = gulp.src(config.config_template);
-    var packageJSON = gulp.src(config.package_path);
 
-    if(config.procfile_path) {
-        var procfilePath = gulp.src(config.procfile_path);
-        procfilePath.pipe(gulp.dest(config.dir));
-    }
-
-    /*if(config.deploy_config_files) {
-        var deployConfigFiles = gulp.src(config.deploy_config_files);
-        deployConfigFiles.pipe(gulp.dest(config.dir));
-    }*/
     if(config.deploy_config_file) {
         var deployConfigFiles = gulp.src(config.deploy_config_file);
         deployConfigFiles
             .pipe($.rename(config.deploy_config_file_target))
             .pipe(gulp.dest(config.dir));
     }
-    
-
     var vendorStream = gulp.src(config.files.vendor_js, {read: false});
     var appStream = gulp.src(app_files).pipe(plumber()).pipe($.angularFilesort());
     var cssStream = gulp.src(config.files.css);
-
-    targetJs.pipe(gulp.dest(config.dir));
-    targetConfig.pipe(gulp.dest(config.dir + config.config_target));
-    packageJSON.pipe(gulp.dest(config.dir));
 
     if(isProd !== true){
         return target.pipe($.inject(series(vendorStream, appStream, cssStream), {ignorePath: config.files.ignore_paths, addRootSlash: false}))
@@ -209,8 +191,6 @@ var index = function(app, config, app_files, isProd) {
             .pipe($.rename(config.index_target))
             .pipe(gulp.dest(config.dir));
     }
-
-
 };
 
 gulp.task('index', function() {
