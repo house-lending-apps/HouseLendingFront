@@ -13,12 +13,12 @@ then
 
     echo "Starting deployment ... "
 
-    git clone https://github.com/house-lending-apps/HouseLendingDeployable $targetBranch
+    git clone https://$USER_CRED@github.com/house-lending-apps/HouseLendingFront.git $targetBranch
     git checkout $targetBranch
 
     cd HouseLendingDeployable
 
-    cp -r $REPOSITORY_NAME/dist/. .
+    cp -r ../$REPOSITORY_NAME/dist/. .
     echo "Pushing to $targetBranch"
 
     git add -f -all
