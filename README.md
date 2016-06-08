@@ -1,8 +1,7 @@
 # Travis Build Status #
-[![Build Status](https://travis-ci.org/house-lending-apps/HouseLendingFront.svg?branch=master)](https://travis-ci.org/house-lending-apps/HouseLendingFront)
+![Build Status](https://travis-ci.org/house-lending-apps/HouseLendingFront.svg?branch=develop)](https://travis-ci.org/house-lending-apps/HouseLendingFront)
 
-# House-Lending-Apps
-House-Lending-Apps
+[ House-Lending-Front Application ]
 
 #Reference URLs used while designing the application :
 

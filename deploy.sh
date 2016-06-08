@@ -18,16 +18,16 @@ then
 
         cd ..
         echo "Current directory = $PWD"
-        git clone https://$USER_CRED@github.com/house-lending-apps/HouseLendingDeployable.git $targetBranch
+        git clone https://$USER_CRED@github.com/house-lending-apps/HouseLendingMain.git $targetBranch
 
-        cd HouseLendingDeployable
+        cd HouseLendingMain
         echo "Current directory = $PWD"
 
         cp -r ../$REPOSITORY_NAME/dist/. .
         echo "Pushing to $targetBranch"
 
         git add -f --all .
-        git commit -a -m 'Deployed new version of houselendingfront'
+        git commit -a -m 'Deployed new version of House Lending Front'
         git push -f --set-upstream origin $targetBranch
     else
         echo 'No need to deploy.'
