@@ -1,6 +1,5 @@
 # Travis Build Status #
- https://travis-ci.org/house-lending-apps/HouseLendingFront.svg?branch=develop
-
+[![Build Status](https://travis-ci.org/house-lending-apps/HouseLendingFront.svg?branch=master)](https://travis-ci.org/house-lending-apps/HouseLendingFront)
 
 # House-Lending-Apps
 House-Lending-Apps
