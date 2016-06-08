@@ -26,6 +26,4 @@ before_script:
   - "export DISPLAY=:99.0"
 after_success:
   - bash deploy.sh
-deploy:
-	skip_cleanup: true
-	
+
