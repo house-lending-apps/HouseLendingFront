@@ -8,7 +8,7 @@ shopt -s extglob
 if [ $TRAVIS_PULL_REQUEST = false ]
 then
     echo "current branch is =  $TRAVIS_BRANCH"
-    if [$TRAVIS_BRANCH = "develop" ]
+    if [ $TRAVIS_BRANCH = "develop" ]
     then
         echo "targetBranch = master"
         git config --global user.email $GIT_USER_EMAIL
