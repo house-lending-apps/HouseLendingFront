@@ -28,3 +28,4 @@ after_success:
   - bash deploy.sh
 deploy:
 	skip_cleanup: true
+	
