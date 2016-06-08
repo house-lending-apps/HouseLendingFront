@@ -13,15 +13,19 @@ then
 
     echo "Starting deployment ... "
 
+    cd ..
+    echo "Current directory = $PWD"
     git clone https://$USER_CRED@github.com/house-lending-apps/HouseLendingDeployable.git $targetBranch
     git checkout $targetBranch
 
+    echo "`ls -l"
     cd HouseLendingDeployable
+    echo "Current directory = $PWD"
 
     cp -r ../$REPOSITORY_NAME/dist/. .
     echo "Pushing to $targetBranch"
 
-    git add -f -all
+    git add -f --all .
     git commit -a -m 'bumped the version [ci skip]'
     git push -f --set-upstream origin $targetBranch
 
