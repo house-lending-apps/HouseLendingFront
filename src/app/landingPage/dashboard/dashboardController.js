@@ -13,7 +13,7 @@ var DashboardController = function (AdvertisementListService /*,advertisementDat
 
 DashboardController.prototype.init = function () {
     var self = this;
-    self.AdvertisementListService.getAdvertisementsMocked()
+    self.AdvertisementListService.getAdvertisements()
         .then(function (advertisements) {
             //success scenario
             console.log(JSON.stringify(advertisements));
