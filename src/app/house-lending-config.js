@@ -5,13 +5,27 @@ angular
         $window.COUNTRY = 'UK';
     })
     .constant('RuntimeConfiguration', {
-        logging: {
-            debug: true
+        dev : {
+            logging: {
+                debug: true
+            },
+            urls: [
+                {
+                    'url': '/api/authenticate',
+                    'target': 'http://localhost:3000/api/authenticate'
+                }
+            ]
         },
-        urls: [
-            {
-                "url": "/api/authenticate",
-                "target": "/api/authenticate"
-            }
-        ]
+
+        test : {
+            logging: {
+                debug: true
+            },
+            urls: [
+                {
+                    'url': '/api/authenticate',
+                    'target': '/api/authenticate'
+                }
+            ]
+        }
     });

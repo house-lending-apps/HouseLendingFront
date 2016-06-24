@@ -7,7 +7,7 @@ var argv = require('yargs').argv;
 var demo_dirs = ['src/app', 'demo', 'node_modules'];
 var dist_dirs = ['dist', 'node_modules'];
 var livereload_port = argv.lp || 35728; // Default is 35729 but we keep it as default port for main app
-var server_port = argv.p || 9000;
+var server_port = argv.p || 9001;
 
 var startServer = function (src) {
     gulp.src(src)
