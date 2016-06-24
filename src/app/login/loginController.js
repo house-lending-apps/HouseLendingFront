@@ -14,7 +14,7 @@ var LoginController = function (AuthenticationService, LoggerService, $state) {
 LoginController.prototype.loginUser = function () {
     var self = this;
 
-    self.AuthenticationService.validateUserMocked(self.user, self.password, 'password').then(function () {
+    self.AuthenticationService.validateUser(self.user, self.password, 'password').then(function () {
         //success callback
         self.LoggerService.log('user ' + self.user + ' is authenticated, redirecting to Landing Page');
         self.$state.go('houseLending');
