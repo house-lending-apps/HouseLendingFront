@@ -16,6 +16,7 @@ gulp.task('build', function(done) {
     runSequence(
         'install',
         'analyze',
+        'inject-config',
         'clean-dist',
         ['build-js', 'build-mocks', 'build-sass', 'copy-assets'],
         'index',
@@ -27,6 +28,7 @@ gulp.task('build-prod', function(done) {
     runSequence(
         'install',
         'analyze',
+        'inject-config',
         'clean-dist',
         ['build-js', 'build-mocks', 'build-sass', 'copy-assets'],
         'index-prod',
@@ -38,6 +40,7 @@ gulp.task('build-demo', function(done) {
     runSequence(
         'install',
         'analyze-ci',
+        'inject-config',
         'clean-demo',
         'build-sass-demo',
         'copy-assets-demo',
@@ -50,6 +53,7 @@ gulp.task('build-demo-mocked', function(done) {
     runSequence(
         'install',
         'analyze-ci',
+        'inject-config',
         'clean-demo',
         'build-sass-demo',
         'copy-assets-demo',
@@ -62,6 +66,7 @@ gulp.task('build-ci', function(done) {
     runSequence(
         'install',
         'analyze',
+        'inject-config',
         'clean-dist',
         ['build-js', 'build-mocks', 'build-sass', 'copy-assets'],
         'index',

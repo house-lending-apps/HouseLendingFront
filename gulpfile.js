@@ -7,6 +7,7 @@ var requireDir = require('require-dir');
 requireDir('gulp-tasks');
 
 gulp.task('run-prod', function(cb) {
+    process.env.NODE_ENV = 'test';
     runSequence(
         'build-prod',
         cb
@@ -14,6 +15,7 @@ gulp.task('run-prod', function(cb) {
 });
 
 gulp.task('run', function(cb) {
+    process.env.NODE_ENV = 'dev';
     runSequence(
         'build',
         'watch',
@@ -23,6 +25,7 @@ gulp.task('run', function(cb) {
 });
 
 gulp.task('run-demo', function(cb) {
+    process.env.NODE_ENV = 'dev';
     runSequence(
         'build-demo',
         'watch-demo',
@@ -32,6 +35,7 @@ gulp.task('run-demo', function(cb) {
 });
 
 gulp.task('run-demo-mocked', function(cb) {
+    process.env.NODE_ENV = 'dev';
     runSequence(
         'build-demo-mocked',
         'watch-demo-mocked',
@@ -45,3 +49,5 @@ gulp.task('run-demo-mocked', function(cb) {
 gulp.task('clean', ['clean-dist','clean-demo']);
 
 gulp.task('release', ['release-patch']);
+
+

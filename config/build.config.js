@@ -8,6 +8,12 @@ var fileconfig = require('./file.config.js');
 module.exports = {
     bundle: package_json.name,
     module: package_json.main,
+    inject: {
+        injectingFilePath: 'src/app/app-config/house-lending-config.json',
+        injectedFileTemplate: 'config/RuntimeConfiguration.template.js',
+        injectedFilePath: 'src/app/',
+        injectedFileName: 'RuntimeConfiguration.js'
+    },
     demo: {
         index_template: 'src/index.tpl.html',
         index_target: 'index.html',
