@@ -3,7 +3,7 @@
 
 var AdvertisementBaseModel = function () {
 
-
+    
 
     var Property = function () {
         return {

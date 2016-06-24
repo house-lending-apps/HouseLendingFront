@@ -1,36 +1,35 @@
 'use strict';
 
 
-var AdvertisementListModel = function (AdvertisementBaseModel) {
-    this.Advertisement = [];
-    angular.copy(AdvertisementBaseModel, this.Advertisement);
-    this.advertisements = [];
+var AdvertisementListModel = function () {
 
-    return this;
-};
+    var factory = {};
 
-AdvertisementListModel.prototype.getAdvertisements = function () {
-    return this.advertisements;
-};
+    factory.advertisements = [];
 
-AdvertisementListModel.prototype.setAdvertisements = function (advertisements) {
-    this.advertisements = advertisements;
-};
+    factory.populateAdvertisementModel = function (advertisements) {
+        var self = this;
+        angular.forEach(advertisements, function (advertisementData) {
+            self.advertisements.push(mapAdvertisementToModel((advertisementData)));
+        });
+    };
 
-AdvertisementListModel.prototype.populateAdvertisementModel = function (advertisements) {
-    var self = this;
-    angular.forEach(advertisements, function (advertisementData) {
-        self.advertisements.push(mapAdvertisementToModel((advertisementData)));
-    });
-};
+    factory.getAdvertisements = function () {
+        return this.advertisements;
+    };
 
-var mapAdvertisementToModel = function (advertisementData) {
-    var advertisement = new this.Advertisement();
+    factory.setAdvertisements = function (advertisements) {
+        var self = this;
+        self.advertisements = advertisements;
+    };
 
-    // Considering that the advertisementData and model will be exactly similiar
-    advertisement = advertisementData;
+    var mapAdvertisementToModel = function (advertisementData) {
+        var advertisement = advertisementData;
+        return advertisement;
+    };
 
-    return advertisement;
+    return factory;
+
 };
 
 angular.module('house-lending.models')

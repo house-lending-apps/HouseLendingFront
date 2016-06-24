@@ -5,7 +5,7 @@ angular.module('house-lending.common.services')
     .service('Configuration', Configuration);
 
 /* @ngInject */
-function Configuration($injector, $log) {
+function Configuration($injector, $log, LoggerService) {
     var defaultConfig = {
         standalone: false,
         session: {
@@ -18,12 +18,12 @@ function Configuration($injector, $log) {
     try {
         runtimeConfiguration = $injector.get('RuntimeConfiguration');
     } catch (e) {
-        $log.warn('No RuntimeConfiguration');
+        LoggerService.warn('No RuntimeConfiguration');
     }
 
     var config = angular.extend({}, defaultConfig, runtimeConfiguration);
     if (config.logging.debug) {
-        $log.info('RuntimeConfiguration loaded', config);
+        LoggerService.log('RuntimeConfiguration loaded', config);
     }
     return config;
 }

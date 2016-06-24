@@ -5,7 +5,11 @@
   "urls": [
     {
       "url": "/api/authenticate",
-      "target": "http://localhost:3000/api/authenticate"
+      "target": "/api/authenticate"
+    },
+    {
+      "url": "/api/advertisements",
+      "target": "/api/advertisements"
     }
   ]
 }

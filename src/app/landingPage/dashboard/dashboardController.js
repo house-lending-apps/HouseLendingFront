@@ -14,10 +14,10 @@ var DashboardController = function (AdvertisementListService /*,advertisementDat
 DashboardController.prototype.init = function () {
     var self = this;
     self.AdvertisementListService.getAdvertisements()
-        .then(function (advertisements) {
+        .then(function (advertisementsObject) {
             //success scenario
-            console.log(JSON.stringify(advertisements));
-            self.advertisements = advertisements;
+            console.log(JSON.stringify(advertisementsObject.advertisements));
+            self.advertisements = advertisementsObject.advertisements;
         }, function (error) {
             //failure scenario
             console.log(error);

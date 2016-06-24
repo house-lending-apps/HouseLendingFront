@@ -18,7 +18,7 @@ var AuthenticationService = function ($resource, $q, $timeout) {
             }
         ];
 
-    this.validateUser = function (user, password, authMethod) {
+   /* this.validateUser = function (user, password, authMethod) {
         var self = this;
         var deferred = self.$q.defer();
         var requestParameters = {
@@ -36,9 +36,9 @@ var AuthenticationService = function ($resource, $q, $timeout) {
         );
 
         return deferred.promise;
-    };
+    };*/
 
-    this.validateUserMocked = function (user, password, authMethod) {
+    this.validateUser = function (user, password, authMethod) {
         var self = this;
         var deferred = self.$q.defer();
         var requestParameters = {

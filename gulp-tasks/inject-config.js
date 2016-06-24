@@ -32,10 +32,12 @@ gulp.task('inject-config-data', function () {
     var _injectingFilePath = path.dirname(config.inject.injectingFilePath) + '/' + path.basename(config.inject.injectingFilePath).replace('.', '.' + currentEnv + '.');
     var injectNewContent = function (tobeReplacedContent) {
         var newContent = tobeReplacedContent.split('\n');
-        newContent = newContent.replace(/"/g, "'");
         newContent[1] = JSON.stringify(JSON.parse(fs.readFileSync(_injectingFilePath)));
+        newContent.concat('\n\n\n');
         return newContent.join('\n');
     };
+
+
 
     if (!fs.existsSync(_injectingFilePath)) {
         console.log('Config for [' + currentEnv + '] not found. Using ' + defaultEnv);

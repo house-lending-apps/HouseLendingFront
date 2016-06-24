@@ -1,16 +1,16 @@
 'use strict';
 
-var SessionService = function () {
-
+var SessionService = function (LoggerService) {
+    this.loggerService = LoggerService;
 };
 
 SessionService.prototype.isAuthenticated = function() {
-    console.log('checking if isAuthenticated');
+    this.loggerService.log('checking if isAuthenticated');
     return true;
 };
 
 SessionService.prototype.logout = function() {
-    console.log('Logout !!!');
+    this.loggerService.log('Logout !!!');
 };
 
 angular.module('house-lending.common.services')
