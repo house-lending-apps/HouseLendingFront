@@ -1,3 +1,4 @@
+<!--
 <div class="log-in-container">
     <div class="row">
         <div class="medium-6 medium-centered large-4 large-centered columns">
@@ -19,4 +20,52 @@
             </form>
         </div>
     </div>
+</div>
+-->
+<div id="login-dialog">
+    <md-dialog aria-label="HiRez.io Login" md-theme="login">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>login to House Lending Application </h2>
+                <span flex></span>
+                <!--<md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Cancel"></md-icon>
+                </md-button>-->
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <form name="loginForm">
+                <md-input-container class="md-block">
+                    <label>eMail</label>
+                    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                    <input ng-model="vm.user" type="email" name="email"
+                           minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" required>
+                    <div ng-messages="vm.email.$error" role="alert">
+                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            Your email must be between 10 and 100 characters long and look like an e-mail address.
+                        </div>
+                    </div>
+                </md-input-container>
+
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Password</label>
+                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg" class="phone"></md-icon>
+                    <input type="password" placeholder="Password" ng-model="vm.password">
+                </md-input-container>
+
+                <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+            </form>
+            <div>
+                <p class="text-center log-in-error" ng-if="vm.errorMessage !== undefined">{{vm.errorMessage}}</p>
+            </div>
+
+        </md-dialog-content>
+        <md-dialog-actions layout="row" md-whiteframe="2">
+            <md-button ng-click="vm.registerUser()"> Not a Member?</md-button>
+            <span flex> </span>
+            <md-button ng-click="vm.cancel()">Cancel</md-button>
+            <md-button ng-click="vm.loginUser()" md-autofocus class="md-raised md-primary"> Login</md-button>
+        </md-dialog-actions>
+    </md-dialog>
 </div>

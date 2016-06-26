@@ -5,13 +5,14 @@
 module.exports = {
     vendor_js: [
         'node_modules/jquery/dist/jquery.js',
+        'node_modules/lodash/lodash.js',
         'node_modules/angular/angular.js',
         'node_modules/angular-resource/angular-resource.js',
         'node_modules/angular-animate/angular-animate.js',
         'node_modules/angular-messages/angular-messages.js',
-        'node_modules/lodash/lodash.js',
+        'node_modules/angular-aria/angular-aria.min.js',
         'node_modules/angular-ui-router/release/angular-ui-router.js',
-        'node_modules/foundation-sites/dist/foundation.js'
+        'node_modules/angular-material/angular-material.min.js'
     ],
     app_js_demo: [
         'src/app/**/*.js',
@@ -29,12 +30,12 @@ module.exports = {
     ],
     css_demo: [
         'node_modules/angular/angular-csp.css',
-        'node_modules/foundation-sites/dist/foundation.css',
+        'node_modules/angular-material/angular-material.css',
         'demo/*.css'
     ],
     css_dist: [
         'node_modules/angular/angular-csp.css',
-        'node_modules/foundation-sites/dist/foundation.css',
+        'node_modules/angular-material/angular-material.css',
         'dist/*.css',
         '!dist/*.min.css'
     ],

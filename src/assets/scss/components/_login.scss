@@ -1,39 +1,60 @@
-// Default medium-gray color
-$medium-gray: #cacaca;
+#login-dialog {
 
-// Default global padding
-$global-padding: 1rem;
-
-// Global value used for all elements that have a border radius.
-$global-radius: 3px;
-
-// Setting the form border color
-$form-border-color: $medium-gray;
-
-// Setting the form padding
-$form-padding: $global-padding;
-
-// Setting the form border radius
-$form-radius: $global-radius;
-.log-in-container {
-  .row .column.row.row {
-    padding-left: $form-padding;
-    padding-right: $form-padding;
+  md-no-animations,
+  md-dialog.md-transition-in,
+  md-dialog.md-transition-out {
+    transform: none !important;
   }
 
-  padding-top: 10rem;
+  md-toolbar {
 
-
-  .log-in-form {
-    border: 1px solid $form-border-color;
-    padding: $form-padding;
-    border-radius: $form-radius;
+    img {
+      height: 49px;
+      margin-top: 5px;
+      margin-left: 10px;
+    }
   }
 
-  .log-in-error {
-    color: red;
+  md-dialog {
+    min-width: 400px;
+    form {
+      padding: 15px;
+      margin-top: 30px;
+    }
   }
 
+  md-dialog-content {
+    max-width: 500px;
+    max-height: 600px;
+  }
 
+  md-input-container {
+    .md-input-messages-animation {
+      max-width: 300px;
+    }
+
+    &:not(.md-input-invalid) {
+      md-icon {
+        &.email {
+          color: green;
+        }
+
+        &.name,
+        &.phone {
+          color: dodgerblue;
+        }
+      }
+    }
+
+    &.md-input-invalid {
+      md-icon {
+        &.name,
+        &.email,
+        &.phone {
+          color: red;
+        }
+      }
+    }
+  }
 }
 
