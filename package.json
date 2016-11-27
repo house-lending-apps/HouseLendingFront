@@ -1,6 +1,6 @@
 {
-  "name": "house-lending",
-  "main": "house-lending",
+  "name": "house-lending-front",
+  "main": "house-lending-front",
   "version": "1.0.0",
   "description": "",
   "scripts": {
