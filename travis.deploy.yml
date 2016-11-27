@@ -13,11 +13,4 @@ cache:
 notifications:
   email:
       - kulkarni.mak172@gmail.com
-deploy:
-  provider: heroku
-  api_key:
-    secure: f28013d9-a46c-4e41-838e-9ec86c45d54c
-  app:
-    master: house-lending-front
-  on: master
-
+      
